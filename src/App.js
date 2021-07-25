@@ -23,13 +23,3 @@ function App() {
 
 
 export default App;
-
-{/* 
-
-    // <div className="App">
-    //   <header className="App-header">
-    //     <p>
-    //       Edit
-    //     </p>
-    //   </header>
-    // </div> */}
