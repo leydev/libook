@@ -8,15 +8,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 function App() {
   return (
     <div className="App">
-      <Grid container className={classes.root}>
-        <Grid item xs={4}>
-          <Typography>Filled</Typography>
-        </Grid>
-        <Grid item xs={8}>
-          <DeleteIcon />
-          <DeleteForeverIcon />
-        </Grid>
-      </Grid>
+        Hello world
     </div>
   );
 }
