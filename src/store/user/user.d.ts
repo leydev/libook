@@ -3,11 +3,12 @@
  */
 
 export interface UserState {
-  token: string,
-  firstName: string,
-  lastName: string,
-  email: string,
-  role: string,
+  token: string
+  firstName: string
+  lastName: string
+  email: string
+  password: string
+  role: string
 }
 
 /**

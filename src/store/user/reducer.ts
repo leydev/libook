@@ -6,10 +6,11 @@ import type {
 } from './user';
 
 const userState: UserState = {
-  token: 'Bruno',
+  token: '',
   firstName: '',
   lastName: '',
-  email: '',
+  email: 'wesley.waaraujo@gmail.com',
+  password: '123456789',
   role: '',
 };
 

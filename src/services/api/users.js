@@ -4,6 +4,10 @@ export function postUsers(payload) {
   return instance.post('/users', payload);
 }
 
+export function postUsersSignin(payload) {
+  return instance.post('/users/login', payload);
+}
+
 export function getUsersById(id, payload) {
   return instance.get(`/users/${id}`, payload);
 }

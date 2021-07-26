@@ -8,6 +8,7 @@ function mapState({
     firstName,
     lastName,
     email,
+    password,
     role,
   },
 }: State) {
@@ -16,6 +17,7 @@ function mapState({
     firstName,
     lastName,
     email,
+    password,
     role,
   };
 }
