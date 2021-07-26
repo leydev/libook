@@ -6,7 +6,15 @@ $full-size: 100%;
   display: flex;
   flex-direction: column;
   .body-theme {
-    background-color: #000;
     flex-grow: 1;
+  }
+  .MuiBottomNavigation-root{
+    background-color: #2D2D2D;
+  }
+  .MuiBottomNavigationAction-root{
+    color: rgba(255, 255, 255, 0.67);
+  }
+  .MuiBottomNavigationAction-root.Mui-selected{
+    color: #227ED2
   }
 }

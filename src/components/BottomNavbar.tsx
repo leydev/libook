@@ -2,9 +2,9 @@ import {
   BottomNavigation,
   BottomNavigationAction,
 } from '@material-ui/core';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import BookIcon from '@material-ui/icons/Book';
+import PeopleIcon from '@material-ui/icons/People';
 
 function Component() {
   let value = 0;
@@ -16,9 +16,9 @@ function Component() {
       }}
       showLabels
     >
-      <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-      <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-      <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+      <BottomNavigationAction label="Dashboard" icon={<DashboardIcon />} />
+      <BottomNavigationAction label="Books" icon={<BookIcon />} />
+      <BottomNavigationAction label="Users" icon={<PeopleIcon />} />
     </BottomNavigation>
   );
 }
