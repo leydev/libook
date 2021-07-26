@@ -13,8 +13,8 @@ function Component() {
   const [index, setIndex] = useState<number>(-1);
   const [path] = useState<string[]>([
     '/',
-    '/users',
     '/books',
+    '/users',
   ]);
 
   const redirectTo = useCallback((newIndex) => {
