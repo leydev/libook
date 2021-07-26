@@ -22,7 +22,7 @@ function Component(props: Props) {
   }, [email, password]);
 
   return (
-    <Theme name="Login">
+    <Theme name="Default">
       <Box width="100%" height="100%" display="flex" justifyContent="center" alignItems="center">
         <Box width="80%" display="flex" flexDirection="column">
           <Logo />

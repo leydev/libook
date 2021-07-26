@@ -1,0 +1,12 @@
+$full-size: 100%;
+
+.theme-default {
+  width: $full-size;
+  height: $full-size;
+  display: flex;
+  flex-direction: column;
+  .body-theme {
+    background-color: #000;
+    flex-grow: 1;
+  }
+}
