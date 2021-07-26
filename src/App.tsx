@@ -5,9 +5,7 @@ import Login from './pages/Login';
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
-        <Login />
-      </div>
+      <Login />
     </Provider>
   );
 }

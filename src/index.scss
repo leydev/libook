@@ -1,0 +1,15 @@
+$full-size: 100%;
+
+html {
+  width: $full-size;
+  height: $full-size;
+  body {
+    width: $full-size;
+    height: $full-size;
+    margin: 0;
+    #root {
+      width: $full-size;
+      height: $full-size;
+    }
+  }
+}
