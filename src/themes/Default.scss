@@ -7,6 +7,7 @@ $full-size: 100%;
   flex-direction: column;
   .body-theme {
     flex-grow: 1;
+    overflow: hidden;
   }
   .MuiBottomNavigation-root{
     background-color: #2D2D2D;

@@ -9,12 +9,12 @@ interface Props {
 
 export function Default(props: Props) {
   const { children } = props;
-  const a = children;
+
   return (
     <div className="theme-default">
       <Navbar />
       <div className="body-theme">
-        {typeof a}
+        {children}
       </div>
       <BottomNavbar />
     </div>

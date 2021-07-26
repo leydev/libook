@@ -1,45 +1,25 @@
-import { useCallback } from 'react';
-import { ConnectedProps } from 'react-redux';
-import { Button, Box } from '@material-ui/core';
-import connector from '../store/user/connector';
+import { Box, Typography } from '@material-ui/core';
+import { CardReview } from '../components/cards/CardReview';
+import { CardBook } from '../components/cards/CardBook';
 import Theme from '../utils/Theme';
-import Logo from '../components/Logo';
-import { postUsersSignin } from '../services/api';
 
 import './Login.scss';
 
-interface Props extends ConnectedProps<typeof connector> {}
-
-function Component(props: Props) {
-  const { email, password, setUserInfo } = props;
-
-  const autheticate = useCallback(() => {
-    postUsersSignin({ email, password })
-      .then(({ data }) => {
-        setUserInfo({ token: data.token, ...data.user });
-      })
-      .catch();
-  }, [email, password]);
-
+function Component() {
   return (
     <Theme name="Default">
-      <Box width="100%" height="100%" display="flex" justifyContent="center" alignItems="center">
-        <Box width="80%" display="flex" flexDirection="column">
-          <Logo />
-          <h1>Hello World</h1>
-          <Button
-            disabled={!email || !password}
-            variant="contained"
-            className="login-button"
-            onClick={() => autheticate()}
-          >
-            Signin
-          </Button>
-        </Box>
+      <Box height="100%" overflow="auto" padding="0rem .5rem">
+        <Typography variant="h5" style={{ margin: '1rem 0rem' }}>Last Reviews</Typography>
+        <CardReview />
+        <CardReview />
+        <Typography variant="h5" style={{ margin: '1rem 0rem' }}>Last Books</Typography>
+        <CardBook />
+        <CardBook />
+        <CardBook />
       </Box>
     </Theme>
   );
 }
 
-export const Dashboard = connector(Component);
+export const Dashboard = Component;
 export default Dashboard;
