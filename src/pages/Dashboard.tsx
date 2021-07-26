@@ -1,7 +1,6 @@
 import { useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
 import { ConnectedProps } from 'react-redux';
-import { TextField, Button, Box } from '@material-ui/core';
+import { Button, Box } from '@material-ui/core';
 import connector from '../store/user/connector';
 import Theme from '../utils/Theme';
 import Logo from '../components/Logo';
@@ -12,14 +11,12 @@ import './Login.scss';
 interface Props extends ConnectedProps<typeof connector> {}
 
 function Component(props: Props) {
-  const history = useHistory();
   const { email, password, setUserInfo } = props;
 
   const autheticate = useCallback(() => {
     postUsersSignin({ email, password })
       .then(({ data }) => {
         setUserInfo({ token: data.token, ...data.user });
-        history.push({ pathname: '/' });
       })
       .catch();
   }, [email, password]);
@@ -29,20 +26,7 @@ function Component(props: Props) {
       <Box width="100%" height="100%" display="flex" justifyContent="center" alignItems="center">
         <Box width="80%" display="flex" flexDirection="column">
           <Logo />
-          <TextField
-            type="email"
-            label="Email"
-            className="login-textfield"
-            value={email}
-            onChange={({ target: { value } }) => setUserInfo({ email: value })}
-          />
-          <TextField
-            type="password"
-            label="Password"
-            className="login-textfield"
-            value={password}
-            onChange={({ target: { value } }) => setUserInfo({ password: value })}
-          />
+          <h1>Hello World</h1>
           <Button
             disabled={!email || !password}
             variant="contained"
@@ -57,5 +41,5 @@ function Component(props: Props) {
   );
 }
 
-export const Login = connector(Component);
-export default Login;
+export const Dashboard = connector(Component);
+export default Dashboard;

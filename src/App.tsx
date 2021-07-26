@@ -1,11 +1,23 @@
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
-import Login from './pages/Login';
+import routes from './routes';
 
 function App() {
   return (
     <Provider store={store}>
-      <Login />
+      <Router>
+        <Switch>
+          {routes.map((route) => (
+            <Route
+              key={route.path}
+              path={route.path}
+              component={route.componente}
+              exact
+            />
+          ))}
+        </Switch>
+      </Router>
     </Provider>
   );
 }
