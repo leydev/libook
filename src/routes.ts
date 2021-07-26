@@ -1,5 +1,5 @@
 import { ComponentClass, FunctionComponent } from 'react';
-import { Login, Dashboard } from './pages';
+import { Login, Dashboard, Users } from './pages';
 
 export interface Route {
   path: string;
@@ -14,6 +14,10 @@ const routes: Route[] = [
   {
     path: '/',
     componente: Dashboard,
+  },
+  {
+    path: '/users',
+    componente: Users,
   },
 ];
 

@@ -5,15 +5,34 @@ import {
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import BookIcon from '@material-ui/icons/Book';
 import PeopleIcon from '@material-ui/icons/People';
+import { useCallback, useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 function Component() {
-  let value = 0;
+  const history = useHistory();
+  const [index, setIndex] = useState<number>(-1);
+  const [path] = useState<string[]>([
+    '/',
+    '/users',
+    '/books',
+  ]);
+
+  const redirectTo = useCallback((newIndex) => {
+    const { pathname } = history.location;
+    if (path[newIndex] !== pathname) history.push(path[newIndex]);
+    setIndex(newIndex);
+  }, []);
+
+  useEffect(() => {
+    const { pathname } = history.location;
+    const newIndex = path.indexOf(pathname);
+    setIndex(newIndex);
+  }, []);
+
   return (
     <BottomNavigation
-      value={value}
-      onChange={(event, newValue) => {
-        value = newValue;
-      }}
+      value={index}
+      onChange={(event, newValue) => redirectTo(newValue)}
       showLabels
     >
       <BottomNavigationAction label="Dashboard" icon={<DashboardIcon />} />
