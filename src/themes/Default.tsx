@@ -1,5 +1,6 @@
 import { BottomNavbar } from '../components/BottomNavbar';
 import { Navbar } from '../components/Navbar';
+import { Alert } from '../components/Alert';
 
 import './Default.scss';
 
@@ -16,6 +17,7 @@ export function Default(props: Props) {
       <div className="body-theme">
         {children}
       </div>
+      <Alert />
       <BottomNavbar />
     </div>
   );

@@ -1,3 +1,5 @@
+import { Alert } from '../components/Alert';
+
 import './Login.scss';
 
 interface Props {
@@ -10,6 +12,7 @@ export function Login(props: Props) {
   return (
     <div className="theme-login">
       {children}
+      <Alert />
     </div>
   );
 }
