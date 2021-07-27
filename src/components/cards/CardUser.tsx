@@ -2,17 +2,23 @@ import {
   Card, CardHeader, Avatar,
 } from '@material-ui/core';
 
-function Component() {
+interface Props {
+  name: string;
+  email: string;
+}
+
+function Component(props: Props) {
+  const { name, email } = props;
   return (
     <Card>
       <CardHeader
         avatar={(
           <Avatar aria-label="recipe">
-            R
+            {name[0].toUpperCase()}
           </Avatar>
         )}
-        title="Wesley araujo"
-        subheader="wesley.waaraujo@gmail.com"
+        title={name}
+        subheader={email}
       />
     </Card>
   );

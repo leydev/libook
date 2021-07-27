@@ -1,9 +1,9 @@
 import {
-  Grid, Avatar, TextField, Select, MenuItem, FormControl, InputLabel,
+  Grid, TextField, Select, MenuItem, FormControl, InputLabel,
 } from '@material-ui/core';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-interface DataAPI {
+export interface DataAPI {
   firstName: string,
   lastName: string,
   email: string,
@@ -11,34 +11,49 @@ interface DataAPI {
   role: string,
 }
 
-function Component() {
+interface Props {
+  onUpdate: (data: DataAPI) => void
+}
+
+function Component(props: Props) {
   const [data, setData] = useState<DataAPI>({
     firstName: '',
     lastName: '',
-    email: 'wesley.waaraujo@gmail.com',
-    password: '123456789',
+    email: '',
+    password: '',
     role: '',
   });
 
+  useEffect(() => {
+    const { onUpdate } = props;
+    onUpdate(data);
+  }, [data]);
+
+  const handleInput = (keyValue: Partial<DataAPI>) => {
+    setData({ ...data, ...keyValue });
+  };
+
   return (
     <Grid container>
-      <Grid item xs={12} style={{ display: 'flex', justifyContent: 'center' }}>
-        <Avatar style={{ width: '3em', height: '3em' }}>W</Avatar>
+      <Grid item xs={6}>
+        <TextField label="First name" value={data.firstName} onChange={({ target: { value } }) => handleInput({ firstName: value as string })} />
       </Grid>
       <Grid item xs={6}>
-        <TextField label="First name" value={data.firstName} onChange={({ target: { value } }) => setData({ ...data, firstName: value as string })} />
-      </Grid>
-      <Grid item xs={6}>
-        <TextField label="Last name" value={data.lastName} onChange={({ target: { value } }) => setData({ ...data, lastName: value as string })} />
+        <TextField label="Last name" value={data.lastName} onChange={({ target: { value } }) => handleInput({ lastName: value as string })} />
       </Grid>
       <Grid item xs={6}>
         <TextField label="Birthday" />
       </Grid>
       <Grid item xs={6}>
-        <TextField label="CPF" />
+        <TextField
+          type="password"
+          label="password"
+          value={data.password}
+          onChange={({ target: { value } }) => handleInput({ ...data, password: value as string })}
+        />
       </Grid>
       <Grid item xs={6}>
-        <TextField label="Email" value={data.email} onChange={({ target: { value } }) => setData({ ...data, email: value as string })} />
+        <TextField label="Email" value={data.email} onChange={({ target: { value } }) => handleInput({ ...data, email: value as string })} />
       </Grid>
       <Grid item xs={6}>
         <FormControl style={{ width: '100%' }}>
@@ -46,10 +61,10 @@ function Component() {
           <Select
             labelId="demo-simple-select-label"
             value={data.role}
-            onChange={({ target: { value } }) => setData({ ...data, role: value as string })}
+            onChange={({ target: { value } }) => handleInput({ ...data, role: value as string })}
           >
             <MenuItem value="administrator">Administrator</MenuItem>
-            <MenuItem value="Client">Client</MenuItem>
+            <MenuItem value="client">Client</MenuItem>
           </Select>
         </FormControl>
       </Grid>
