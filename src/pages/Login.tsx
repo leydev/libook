@@ -30,7 +30,7 @@ function Component(props: Props) {
           if (status === 401) {
             dispatch(setAlertInfo({
               type: 'warning',
-              message: 'Usuário ou senha inválidos',
+              message: 'Email ou senha inválidos',
               open: true,
             }));
             return;
@@ -45,14 +45,14 @@ function Component(props: Props) {
           }
           dispatch(setAlertInfo({
             type: 'error',
-            message: 'Erro indexperado',
+            message: 'Erro inesperado',
             open: true,
           }));
           return;
         }
         dispatch(setAlertInfo({
           type: 'error',
-          message: 'Erro indexperado',
+          message: 'Erro inesperado',
           open: true,
         }));
       });
